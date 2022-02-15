@@ -1,0 +1,38 @@
+name: 'Aliyun CDN Redirector Action'
+description: 'Update the CDN redirect config'
+author: 'VisionWX'
+branding:
+  icon: 'upload'
+  color: 'gray-dark'
+inputs:
+  accessKeyId:
+    description: 'Aliyun accessKeyId.'
+    required: true
+  accessKeySecret:
+    description: 'Aliyun accessKeySecret.'
+    required: true
+  domain:
+    description: 'CDN Domain,e.g. dw.xxx.com'
+    required: true
+  regex:
+    description: 'The request path regex to match'
+    required: true
+  replacement:
+    description: 'The redirect path'
+    required: true
+  configId:
+    description: 'The redirect configId'
+    required: true
+outputs:
+  time: # id of output
+    description: 'The time we greeted you'
+runs:
+  using: 'node16'
+  main: 'dist/main.js'
+  env:
+    ACCESS_KEY_ID: ${{ inputs.accessKeyId }}
+    ACCESS_KEY_SECRET: ${{ inputs.accessKeySecret }}
+    DOMAIN: ${{ inputs.domain }}
+    REDIRECT_REGEX: ${{ inputs.regex }}
+    REDIRECT_REPLACEMENT: ${{ inputs.replacement }}
+    REDIRECT_CONFIG_ID: ${{ inputs.configId }}
