@@ -54,12 +54,19 @@ function getEnvPara(parameterName, defaultValue, raiseExceptionIfNone) {
     }
     return parameterValue;
 }
-var ACCESS_KEY_ID = getEnvPara("ACCESS_KEY_ID");
-var ACCESS_KEY_SECRET = getEnvPara("ACCESS_KEY_SECRET");
-var DOMAIN = getEnvPara("DOMAIN");
-var REDIRECT_REGEX = getEnvPara("REDIRECT_REGEX");
-var REDIRECT_REPLACEMENT = getEnvPara("REDIRECT_REPLACEMENT");
-var REDIRECT_CONFIG_ID = getEnvPara("REDIRECT_CONFIG_ID");
+function getInputPara(parameterName) {
+    var val = core.getInput(parameterName);
+    if (val === "") {
+        val = getEnvPara(parameterName);
+    }
+    return val;
+}
+var ACCESS_KEY_ID = getInputPara("accessKeyId");
+var ACCESS_KEY_SECRET = getInputPara("accessKeySecret");
+var DOMAIN = getInputPara("domain");
+var REDIRECT_REGEX = getInputPara("regex");
+var REDIRECT_REPLACEMENT = getInputPara("replacement");
+var REDIRECT_CONFIG_ID = getInputPara("configId");
 var Cdn = /** @class */ (function () {
     function Cdn() {
     }

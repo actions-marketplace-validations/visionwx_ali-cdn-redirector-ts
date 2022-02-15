@@ -23,16 +23,6 @@ inputs:
   configId:
     description: 'The redirect configId'
     required: true
-outputs:
-  time: # id of output
-    description: 'The time we greeted you'
 runs:
   using: 'node16'
   main: 'dist/main.js'
-  env:
-    ACCESS_KEY_ID: ${{ inputs.accessKeyId }}
-    ACCESS_KEY_SECRET: ${{ inputs.accessKeySecret }}
-    DOMAIN: ${{ inputs.domain }}
-    REDIRECT_REGEX: ${{ inputs.regex }}
-    REDIRECT_REPLACEMENT: ${{ inputs.replacement }}
-    REDIRECT_CONFIG_ID: ${{ inputs.configId }}

@@ -17,12 +17,20 @@ function getEnvPara(parameterName:string, defaultValue:any = undefined, raiseExc
     return parameterValue;
 }
 
-const ACCESS_KEY_ID = getEnvPara("ACCESS_KEY_ID");
-const ACCESS_KEY_SECRET = getEnvPara("ACCESS_KEY_SECRET");
-const DOMAIN = getEnvPara("DOMAIN");
-const REDIRECT_REGEX = getEnvPara("REDIRECT_REGEX");
-const REDIRECT_REPLACEMENT = getEnvPara("REDIRECT_REPLACEMENT");
-const REDIRECT_CONFIG_ID = getEnvPara("REDIRECT_CONFIG_ID");
+function getInputPara(parameterName:string) {
+  let val = core.getInput(parameterName);
+  if (val === "") {
+    val = getEnvPara(parameterName);
+  }
+  return val;
+}
+
+const ACCESS_KEY_ID = getInputPara("accessKeyId");
+const ACCESS_KEY_SECRET = getInputPara("accessKeySecret");
+const DOMAIN = getInputPara("domain");
+const REDIRECT_REGEX = getInputPara("regex");
+const REDIRECT_REPLACEMENT = getInputPara("replacement");
+const REDIRECT_CONFIG_ID = getInputPara("configId");
 
 export default class Cdn {
 
