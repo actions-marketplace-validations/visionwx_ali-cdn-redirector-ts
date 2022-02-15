@@ -1,4 +1,4 @@
-name: 'Aliyun CDN Redirector Action'
+name: 'Aliyun CDN Redirector Action Typescript'
 description: 'Update the CDN redirect config'
 author: 'VisionWX'
 branding:
