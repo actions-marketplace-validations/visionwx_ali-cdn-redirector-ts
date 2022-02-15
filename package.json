@@ -2,10 +2,10 @@
   "name": "ali-cdn-refresh-ts",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/main.js",
+  "main": "dist/main/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc"
+    "build": "ncc build -m ./src/main.ts -o ./dist/main"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +20,7 @@
   "devDependencies": {
     "@babel/core": "^7.17.2",
     "@babel/preset-env": "^7.16.11",
+    "@vercel/ncc": "^0.33.3",
     "babel-loader": "^8.2.3",
     "ts-loader": "^9.2.6",
     "typescript": "^4.5.5",
